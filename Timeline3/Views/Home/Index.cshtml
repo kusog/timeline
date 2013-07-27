@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts {
+    <script>
+        var eventSource = new Timeline.DefaultEventSource(0),
+            theme = Timeline.ClassicTheme.create(),
+            d = Timeline.DateTime.parseGregorianDateTime("1870");
+
+        theme.event.bubble.width = 320;
+        theme.event.bubble.height = 220;
+        theme.autoWidth = true;
+        theme.ether.backgroundColors[1] = theme.ether.backgroundColors[0]; 
+
+        $.get("/monet.xml").done(function (xml) {
+            $("#tline").syrinxTimeline({
+                bands: [
+                {
+                    width: 30,
+                    intervalUnit: Timeline.DateTime.DECADE,
+                    intervalPixels: 200,
+                    date: d,
+                    showEventText: false,
+                    theme: theme,
+                    highlight: false,
+                    decorators: [
+                        new Timeline.SpanHighlightDecorator({
+                            startDate: "Nov 14 1840 00:00:00 GMT",
+                            endDate: "Dec 05 1926 00:00:00 GMT",
+                            startLabel: "birth",
+                            endLabel: "death",
+                            color: "#FFC080",
+                            opacity: 50,
+                            theme: theme
+                        })
+                    ],
+                    etherPainter: new Timeline.YearCountEtherPainter({
+                        startDate: "Nov 14 1840 00:00:00 GMT",
+                        multiple: 5,
+                        theme: theme
+                    })
+                },
+                {
+                    width: 80,
+                    intervalUnit: Timeline.DateTime.DECADE,
+                    intervalPixels: 200,
+                    eventSource: eventSource,
+                    date: d,
+                    theme: theme
+                }]
+            });
+            eventSource.loadXML(xml, "");
+        });
+    </script>
+}
+
+<h2>Index</h2>
+<div id="tline" style="height: 300px;"></div>
+<div style="height:200px;"></div>
+<div id="msgarea"></div>
