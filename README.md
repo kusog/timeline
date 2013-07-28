@@ -50,7 +50,7 @@ This is the [Simile timeline](http://www.simile-widgets.org/timeline/) gone thro
 I've created this repository to hold my work without having to deal with the original goals of timeline and integration with their larger collection of tools such as [Exhibit3](http://www.simile-widgets.org/exhibit3/).
 These goals are stated below.
 
-The JavaScript for the timeline is contained within the Timeline3/jquery.timeline folder.  The overall project is included within a Visual Studio 2012 ASP.NET MVC project, which acts as a test environment.
+The JavaScript for the timeline is contained within the [Timeline3/jquery.timeline](http://github.com/kusog/timeline/tree/master/Timeline3/jquery.timeline) folder.  The overall project is included within a Visual Studio 2012 ASP.NET MVC project, which acts as a test environment.
 The JavaScript in the jquery.time folder has no dependencies on anything .NET.
 
 Goals
