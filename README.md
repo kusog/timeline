@@ -26,3 +26,4 @@ Examples
 There is currently just one example, the life time of the artist Monet, which is just an updated version of the [original Simile timeline example](http://www.simile-widgets.org/timeline/examples/monet/monet.html).
 The monet example also contains the combined and minified version of the timeline css and js, which can easily be lifted and reused in your own projects.
 
+You can see the monet example live at http://monet.kusog.org
