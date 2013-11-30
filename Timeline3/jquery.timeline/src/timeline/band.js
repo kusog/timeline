@@ -601,7 +601,7 @@ _onMouseScroll: function (event) {
         var mouseWheel = this._theme.mouseWheel;
     
         if (this._zoomSteps || mouseWheel === 'zoom') {
-            var loc = SimileAjax.DOM.getEventRelativeCoordinates(evt, innerFrame);
+            var loc = SimileAjax.DOM.getEventRelativeCoordinates(evt, this._div);
             if (delta != 0) {
                 var zoomIn;
                 if (delta > 0)
@@ -609,7 +609,7 @@ _onMouseScroll: function (event) {
                 if (delta < 0)
                     zoomIn = false;
                 // call zoom on the timeline so we could zoom multiple bands if desired
-                this._timeline.zoom(zoomIn, loc.x, loc.y, innerFrame);
+                this._timeline.zoom(zoomIn, loc.x, loc.y, this._div);
             }
         }
         else if (mouseWheel === 'scroll') {

@@ -373,6 +373,11 @@ $.extend(Timeline.OriginalEventPainter.prototype, {
     
         var labelDivClassName = this._getLabelDivClassName(evt);
         var labelSize = this._frc.computeSize(text, labelDivClassName);
+
+        labelSize.width = labelSize.width + 1;
+            /* Necessarry for Internet Explorer 9,
+             * else the label text gets wrapped. */
+
         var labelLeft = startPixel;
         var labelRight = labelLeft + labelSize.width;
     
